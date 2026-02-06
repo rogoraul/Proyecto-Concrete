@@ -1,42 +1,50 @@
-# Proyecto YUCA: Clasificación de Enfermedades en Hojas de Yuca mediante Deep Learning
+# Proyecto: Detección Automática de Grietas en Hormigón 
 
 **Asignatura:** Aprendizaje Profundo 
 
 ## 1. Descripción del Problema
 
-La yuca (Cassava) es la segunda fuente más importante de carbohidratos en África, un cultivo que es vital para la seguridad alimentaria de más de 500 millones de personas. Sin embargo, el 80% de los cultivos domésticos están amenazados por enfermedades virales que son difíciles de distinguir a simple vista por agricultores no expertos.
+El hormigón es uno de los materiales más utilizados en la infraestructura civil, y el deterioro de estas estructuras se manifesta normalmente a través de las grietas, las cuales, si no se detectan a tiempo pueden causar problemas en la seguridad estructural. Tradicionalmente, la inspección de estas estructuras se realizaba de forma manual, pero es un proceso muy lento, subjetivo y costoso. Por tanto, este proyecto tiene como objetivo clasificar de forma automática las imágenes de hormigón para detectar fallos estructurales. El problema es una clasificación binaria:
+- `1`: Positive (Grieta).
+- `0`: Negative (Sin Grieta).
 
-El objetivo de este proyecto es desarrollar un modelo de Deep Learning capaz de clasificar imágenes de hojas de yuca en 5 categorías (4 que son enfermedades y 1 categoría sana) para asistir en la detección temprana de patologías.
+Para lograr el objetivo, se va a desarrollar y comparar diferentes arquitecturas de aprendizaje automático y profundo para automatizar la inspección visual en las infraestructuras civiles.
 
 ## 2. Dataset
 
-Se utilizará el conjunto de datos **Cassava Leaf Disease Classification**, disponible originalmente a través de Kaggle y el Makerere AI Lab.
+Se utiliza el dataset **Concrete Crack Images for Classification**, disponible a través de Kaggle.
+* **Tamaño:** 40.000 imágenes (20.000 Positivas y 20.000 Negativas).
+* **Formato:** Imágenes RGB de 227x227 píxeles.
+* **División:** Se realizará un split de Train/Validation/Test para la generalización de los modelos.
 
-- **Origen:** Kaggle Competition Dataset
-- **Tamaño:** 21,397 imágenes etiquetadas.
-- **Resolución:** Imágenes RGB de alta resolución (se redimensionarán para el entrenamiento).
-- **Clases (Labels):**
-    - `0`: Cassava Bacterial Blight (CBB)
-    - `1`: Cassava Brown Streak Disease (CBSD)
-    - `2`: Cassava Green Mottle (CGM)
-    - `3`: Cassava Mosaic Disease (CMD) — *Clase mayoritaria*
-    - `4`: Healthy (Sana)
 
-## 3. Estado del Arte (State of the Art)
+## 3. Estado del Arte
+La detección automática de grietas en hormigón ha sido ampliamente estudiada en la última década. A continuación, se presenta un análisis de los modelos más relevantes aplicados a este problema, contrastando arquitecturas diseñadas desde cero (Custom CNN) frente a estrategias de Transfer Learning.
+Es importante notar que, para el dataset específico utilizado en este proyecto (imágenes de 227x227 sin fondo complejo), la literatura reporta precisiones muy altas, situando el estado del arte por encima del 98%.
 
-A continuación, se presenta un análisis de los modelos más relevantes aplicados a este problema específico, basándonos en la literatura académica reciente y los resultados de la competición internacional.
-
-| Modelo / Arquitectura | Año | Técnica Principal | Accuracy (Validación) | Fuente / Referencia |
+| Modelo / Arquitectura | Año | Técnica Principal | Metricas | Fuente / Referencia |
 | :--- | :--- | :--- | :--- | :--- |
-| **ResNet-50** | 2019 | Transfer Learning (Baseline) | 83.4% | Mwebaze et al. (iCassava Paper) [1] |
-| **InceptionV3** | 2020 | Multi-scale CNN | 86.2% | Ramcharan et al. [2] |
-| **EfficientNet-B3** | 2020 | Scaling Compuesto + Augmentation Pesado | 88.6% | Sambo et al. / Kaggle Kernels [3] |
-| **Vision Transformer (ViT)** | 2021 | Self-Attention (Sin Convoluciones) | 89.5% | Winning Solutions Analysis [4] |
-| **Ensemble (EffNet + ViT)** | 2021 | Model Ensembling + TTA (Test Time Augmentation) | 90.8% | Kaggle Leaderboard Top 1% [5] |
+|Custom ConvNet | 2016 | CNN Propia (Supervisado) | F1: 89.6%, AUC: 0.96, Recall: 92.5%, Precision: 86.9% | Zhang et al. [1] |
+|CNN (Sliding Window) | 2017 | CNN con Ventana Deslizante | Accuracy: 97.9% | Cha et al. [2] |
+|VGG16 (Pre-trained) | 2018 | Transfer Learning (ImageNet) | 99.8% | Silva & Lucena [3] |
+|ResNet-50 / VGG19 | 2019 | Comparativa Transfer Learning | 99.9% | Özgenel (Autor del Dataset) [4] |
+|MobileNet | 2020 | CNN Ligera (Dispositivos Móviles) | 99.1% | D.J. Kim et al. [5] |
+|VGG16 (Modificado) | 2021 | Semantic Segmentation (FCN) | 98.7% (F1) | H.W. Golding et al. [6] |
 
-### Referencias
-- [1] Mwebaze et al. (2019). "iCassava 2019 Fine-Grained Visual Categorization Challenge". arXiv:1908.02900.
-- [2] Ramcharan, A., et al. (2017/2019). "Deep Learning for Image-Based Cassava Disease Detection". Frontiers in Plant Science.
-- [3] Sambo et al. (2020). "Review of Deep Learning for Cassava Disease".
-- [4] Dosovitskiy et al. (2020) & Public Notebooks: "ViT on Cassava".
-- [5] Kaggle Competition Leaderboard (2021).
+### Referencias Bibliográficas
+[1] Zhang, L., et al. (2016). "Road crack detection using deep convolutional neural network". IEEE International Conference on Image Processing (ICIP).
+[2] Cha, Y.J., et al. (2017). "Deep learning-based crack damage detection using convolutional neural networks". Computer-Aided Civil and Infrastructure Engineering.
+[3] Silva, W.R., & Lucena, D.S. (2018). "Concrete Cracks Detection Based on Deep Learning Image Classification". Proceedings of the XVIII International Conference on Structural Health Monitoring.
+[4] Özgenel, Ç.F. (2019). "Performance Comparison of Pre-Trained Convolutional Neural Networks for Concrete Crack Detection". International Conference on Artificial Intelligence and Data Processing (IDAP).
+[5] Kim, D.J., et al. (2020). "Concrete crack detection with light-weight deep learning models". Journal of Computing in Civil Engineering.
+[6] Golding, H.W., et al. (2021). "A deep learning based approach for crack detection in concrete images". Structural Health Monitoring.
+
+### Métricas de Evaluación Seleccionadas
+Para este proyecto se reportarán las siguientes métricas, priorizando el **Recall**, dado que en ingeniería civil un Falso Negativo (no detectar una grieta real) es el error más peligroso.
+
+* **Accuracy:** Precisión global.
+* **Recall (Sensibilidad):** Capacidad de encontrar todas las grietas reales.
+* **F1-Score:** Equilibrio entre Precision y Recall.
+* **Nº Parámetros:** Complejidad computacional del modelo.
+
+
