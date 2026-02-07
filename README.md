@@ -22,7 +22,7 @@ Se utiliza el dataset **Concrete Crack Images for Classification**, disponible a
 La detección automática de grietas en hormigón ha sido ampliamente estudiada en la última década. A continuación, se presenta un análisis de los modelos más relevantes aplicados a este problema, contrastando arquitecturas diseñadas desde cero frente a estrategias de Transfer Learning.
 
 | Modelo / Arquitectura | Año | Dataset | Metricas | Referencia |
-| :--- | :--- | :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- |
 | **ConvNet** | 2016 | 500 imagenes | F1: 89.6%, Recall: 92.5% | Zhang et al. [1] |
 | **CNN** con ventana deslizante | 2017 | 322 imagenes | Accuracy: 97.9% | Cha et al. [2] |
 | **VGG16 (Transfer)** | 2018 | 3500 imagenes | Accuracy: 92.27% | Silva & Lucena [3] |
