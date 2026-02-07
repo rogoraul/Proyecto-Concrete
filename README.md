@@ -67,6 +67,7 @@ Para este proyecto se utilizarán las siguientes métricas, priorizando el **Rec
 ## 6. Tabla de Resultados
 
 | Modelo | Tipo | Nº Parámetros | Accuracy | Recall | F1-Score |
+| :--- | :--- | :--- | :--- | :--- |:--- |
 | Modelo lineal |  |  |  |  |  |
 | Modelo Machine Learning |  |  |  |  |  |
 | Modelo Simple Red Neuronal |  |  |  |  |  |
