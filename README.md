@@ -56,7 +56,9 @@ Para este proyecto se utilizarán las siguientes métricas, priorizando el **Rec
 ├── data/                  # Dataset (no incluido en repositorio por el tamaño)
 ├── notebooks/
 │   ├── 01_EDA_Carga.ipynb       
-│   ├── 02_Modelos_Simples.ipynb  
+│   ├── 02_Modelo_Lineal.ipynb
+│   ├── 02_Modelo_Machine_Learning.ipynb
+│   ├── 02_Modelo_Red_Neuronal_Simple.ipynb  
 │   └── 03_Modelos_Complejos.ipynb 
 ├── src/                   # Scripts auxiliares
 ├── models/                # Pesos guardados (.h5)
