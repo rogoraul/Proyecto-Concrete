@@ -71,7 +71,7 @@ Para este proyecto se utilizarán las siguientes métricas, priorizando el **Rec
 | Modelo | Tipo | Nº Parámetros | Accuracy | Recall | F1-Score |
 | :--- | :--- | :--- | :--- | :--- |:--- |
 | Modelo lineal | Regresión Logística | 510 | Train: 98%, Val: 98%, Test: 97%| Test: 98% | Test: 98% |
-| Modelo Machine Learning | Support Vector Machine| 510 | Train: 98%, Val: 97%, Test: 97% | 98% | 98% |
+| Modelo Machine Learning | Support Vector Machine| 510 | Train: 98%, Val: 97%, Test: 97% | Test: 98% | Test: 98% |
 | Modelo Simple Red Neuronal | CNN | 233 | Train: 94%, Val: 94%, Test: 94% | Train: 94%, Val: 94%, Test: 94% | Train: 94%, Val: 94%, Test: 94% |
 
 ## 7. Conclusiones y Próximos Pasos
