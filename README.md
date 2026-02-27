@@ -70,11 +70,9 @@ Para este proyecto se utilizarán las siguientes métricas, priorizando el **Rec
 
 | Modelo | Tipo | Nº Parámetros | Accuracy | Recall | F1-Score |
 | :--- | :--- | :--- | :--- | :--- |:--- |
-| Modelo lineal | Regresión Logística | 510 | 98% | 98% | 98% |
-| Modelo Machine Learning | Support Vector Machine| 510 | 98% | 98% | 98% |
-| Modelo Simple Red Neuronal |  |  |  |  |  |
-| Modelo Complejo Red Neuronal |  |  |  |  |  |
-
+| Modelo lineal | Regresión Logística | 510 | Train: 98%, Val: 98%, Test: 97%| Test: 98% | Test: 98% |
+| Modelo Machine Learning | Support Vector Machine| 510 | Train: 98%, Val: 97%, Test: 97% | 98% | 98% |
+| Modelo Simple Red Neuronal | CNN | 233 | Train: 94%, Val: 94%, Test: 94% | Train: 94%, Val: 94%, Test: 94% | Train: 94%, Val: 94%, Test: 94% |
 
 ## 7. Conclusiones y Próximos Pasos
 
@@ -83,7 +81,8 @@ Como se puede ver en la tabla de resultados, hemos logrado solucionar de manera 
 **Explicación de Modelos Obtenidos:**
 - **Regresión Logística:** Nos entrega probabilidades sobre la pertenencia a una clase. Para este modelo utilizamos la función de coste de **entropía cruzada** (Log Loss) porque penaliza exponencialmente las predicciones que son muy seguras y erróneas, optimizando la capacidad de clasificación probabilística. Hemos aplicado 3 modelos, uno sin preprocesamiento con un accuracy en Test del 90% y 4097 parámetros, uno aplicando HOG con un accuracy en Test del 94% y 1765 parámetros, y uno con HOG y PCA con un accuracy en Test del 98% y 510 parámetros
 - **Support Vector Machine (LinearSVC):** Este modelo encuentra el hiperplano óptimo que separa ambas clases. Utiliza como función de coste el **Hinge Loss** dado que su principal objetivo es maximizar el margen que separa las imágenes que tienen grieta de las que no, demostrando ser extremadamente robusto. Hemos aplicado 3 modelos, uno sin preprocesamiento con un accuracy en Test del 88% y 4097 parámetros, uno aplicando HOG con un accuracy en Test del 97.5% y 1765 parámetros, y uno con HOG y PCA con un accuracy en Test del 97.7% y 510 parámetros
-- **Red Convolucional**
+- **Red Neuronal Convolucional:** Se ha diseñado una arquitectura de Red Neuronal Convolucional (CNN) muy simple, compuesta por una capa convolucional de 8 filtros con un kernel de tamaño (3x3) para extraer características básicas de la imagen como bordes y texturas, luego se ha añadido una capa de Global Average Pooling 2D para reducir la dimensionalidad, finalizando con una capa de salida de una neurona con activación sigmoide para la clasificación binaria (Grieta/sano). Durante el entrenamiento, se ha utilizado la funcionalidad de ModelCheckpoint para poder monitorizar la pérdida de validación y guardar los pesos de la mejor época con el mínimo error 'val_loss'. El modelo se ha entrenado durante 120 épocas, aunque la capacidad de computación ha limitado el proceso (se podría haber entrenado con más épocas), ya que al visualizar las curvas de pérdida se puede ver que tanto la línea de entrenamiento como la de validación mantienen una tendencia descendiente, lo que sugiere que el modelo podría seguir mejorando con más épocas de entrenamiento. La curva de pérdida de validación desciende suavemente junto a la de entrenamiento, estabilizandose sin mostrar signos siginficativos de sobreentrenamiento. A parte, el modelo alcanza rapidamente una alta precisión en validación, manteniéndose más o menos alineado con el set de entrenamiento, lo que indica una buena capacidad de generalización.
+Al igual que en la regresión logística, se utiliza la entropía cruzada binaria como función de coste para optimizar la probabilidad de acierto del modelo. Se ha logrado un Accuracy del 94% con tan solo 233 parámetros. Mediante la visualización de los mapas de características, se ha validado que la red aprende de sus propios filtros de detección de bordes y texturas, ignorando el ruido del hormigón mejor que los descriptores estáticos como el HOG. 
 
 **Cambio de Objetivo:**
 Dado que SVM y la Regresión Logística han logrado solucionar el problema a un nivel casi perfecto (98% de Recall), aplicar y ajustar **Redes Neuronales Convolucionales (CNN) más complejas** sobre este dataset es innecesario, ya que el espacio de mejora es virtualmente inexistente. 
