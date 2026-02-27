@@ -6,8 +6,8 @@ def build_simple_cnn(input_shape=(227, 227, 3)):
         layers.Input(shape=input_shape),
         
         # Una sola capa convolucional
-        # Usamos 2 filtros de 3x3 para detectar bordes básicos
-        layers.Conv2D(2, (3, 3), activation='relu', padding='same'),
+        # Usamos 8 filtros de 3x3 para detectar bordes básicos
+        layers.Conv2D(8, (3, 3), activation='relu', padding='same'),
         
         # Global Average Pooling: Reduce cada mapa de activación a un solo número
         layers.GlobalAveragePooling2D(),
@@ -17,3 +17,4 @@ def build_simple_cnn(input_shape=(227, 227, 3)):
     ])
 
     return model
+
