@@ -70,10 +70,26 @@ Para este proyecto se utilizarán las siguientes métricas, priorizando el **Rec
 
 | Modelo | Tipo | Nº Parámetros | Accuracy | Recall | F1-Score |
 | :--- | :--- | :--- | :--- | :--- |:--- |
-| Modelo lineal |  |  |  |  |  |
-| Modelo Machine Learning |  |  |  |  |  |
+| Modelo lineal | Regresión Logística | 510 | 98% | 98% | 98% |
+| Modelo Machine Learning | Support Vector Machine| 510 | 98% | 98% | 98% |
 | Modelo Simple Red Neuronal |  |  |  |  |  |
 | Modelo Complejo Red Neuronal |  |  |  |  |  |
+
+
+## 7. Conclusiones y Próximos Pasos
+
+Como se puede ver en la tabla de resultados, hemos logrado solucionar de manera sobresaliente el problema propuesto de detección de grietas empleando métodos muy eficientes y con baja complejidad computacional. 
+
+**Explicación de Modelos Obtenidos:**
+- **Regresión Logística:** Nos entrega probabilidades sobre la pertenencia a una clase. Para este modelo utilizamos la función de coste de **entropía cruzada** (Log Loss) porque penaliza exponencialmente las predicciones que son muy seguras y erróneas, optimizando la capacidad de clasificación probabilística. Hemos aplicado 3 modelos, uno sin preprocesamiento con un accuracy en Test del 90% y 4097 parámetros, uno aplicando HOG con un accuracy en Test del 94% y 1765 parámetros, y uno con HOG y PCA con un accuracy en Test del 98% y 510 parámetros
+- **Support Vector Machine (LinearSVC):** Este modelo encuentra el hiperplano óptimo que separa ambas clases. Utiliza como función de coste el **Hinge Loss** dado que su principal objetivo es maximizar el margen que separa las imágenes que tienen grieta de las que no, demostrando ser extremadamente robusto. Hemos aplicado 3 modelos, uno sin preprocesamiento con un accuracy en Test del 88% y 4097 parámetros, uno aplicando HOG con un accuracy en Test del 97.5% y 1765 parámetros, y uno con HOG y PCA con un accuracy en Test del 97.7% y 510 parámetros
+- **Red Convolucional**
+
+**Cambio de Objetivo:**
+Dado que SVM y la Regresión Logística han logrado solucionar el problema a un nivel casi perfecto (98% de Recall), aplicar y ajustar **Redes Neuronales Convolucionales (CNN) más complejas** sobre este dataset es innecesario, ya que el espacio de mejora es virtualmente inexistente. 
+
+Por tanto, no hay necesidad de usar modelos de Aprendizaje Profundo más profundos para esta versión exacta del problema y el siguiente paso sería cambiar el objetivo del trabajo hacia un entorno más complejo y realista, introduciendo por ejemplo: "estimación volumétrica de la grieta, superficies con distintas texturas o de otros materiales ruidosos..."
+
 
 
 
