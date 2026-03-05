@@ -13,9 +13,10 @@ def build_simple_cnn(input_shape=(227, 227, 3)):
         layers.GlobalAveragePooling2D(),
         
         # Capa de salida: 1 neurona para clasificación binaria
-        layers.Dense(1, activation='sigmoid')
+        layers.Dense(1, activation='linear')
     ])
 
     return model
+
 
 
