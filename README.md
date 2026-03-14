@@ -100,7 +100,11 @@ Al igual que en la regresión logística, se utiliza la entropía cruzada binari
 - **CNN compleja 3:** Manteniendo las ResNet50 congelada, se ha reducido la capa densa oculta de 512 neuronas a solo 128 neuronas, simplificando de esta manera poco a poco el modelo.
 - **CNN compleja 4:** Se ha eliminado la capa densa oculta de 128 neuronas y la regularización (el dropout), pasando directamente de la ResNet50 congelada a la unica neurona final de clasificación.
 - **CNN compleja 5:** Como ya no quedan capas densas que quitar en la cabeza del modelo, lo que se ha hecho para simplificarlo es quitar capas de la propia red base de la ResNet50, eliminando todo el bloque 5, por tanto ahora el modelo extrae caracteristicas menos profundas y es más pequeño.
-- **CNN compleja 6:** Para simplificar aún más la arquitectura, se han eliminado los bloques 4 y 5 de la ResNet50, dejando únicamente las capas de extracción de texturas y bordes básicos. 
+- **CNN compleja 6:** Para simplificar aún más la arquitectura, se han eliminado los bloques 4 y 5 de la ResNet50, dejando únicamente las capas de extracción de texturas y bordes básicos.
+
+Se puede observar que el modelo de la CNN compleja 1, ha logrado memorizar el conjunto de entrenamiento de forma casi perfecta (Accyracy y Recall del 99.9%, AUC de 1.00). Sin embargo, al evaluarlo en validación y test, las metricas han caído drasticamente, con un recall aproximadamente del 67%, demostrando claramente un problema de sobreajuste, debido al exceso de capacidad de aprendizaje al haber descongelado el bloque 5. 
+Por otro lado, el modelo de la CNN compleja 6 (que es el más simplificado del modelo complejo inicial), no ha tenido capacidad suficiente para aprender los patrones de las grietas, presentando un accuracy del 57% en entrenamiento y un AUC de 0.698, lo que muestra un problema de underfitting debido al alto bias.
+Por último, los modelos 2 y 3 de la CNN compleja representan el equilibrio ideal para este problema de clasificación de grietas. Al mantener la ResNet50 congelada actuando como un extractor de caracteristicas muy potente, y combinarlo con una cabeza densa moderada de unas 512 neuronas o 128 neuronas, el modelo logra la mejor capacidad de generalización. El modelo 2 alcanza un AUC en Test de 0.918, un Accuracy de 89.5% y un Recall de 75.1%, demostrando ser el más robusto y fiable para nuetsro problema de detección de grietas sin caer en el riesgo de la memorización de los datos de entrenamiento. 
 
 
 
