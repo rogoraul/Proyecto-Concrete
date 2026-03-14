@@ -14,10 +14,12 @@ Para lograr el objetivo, se va a desarrollar y comparar diferentes arquitecturas
 
 ## 2. Dataset
 
-Se utiliza el dataset estándar **Concrete Crack Images for Classification** (Özgenel), disponible en Mendeley Data y Kaggle.
-* **Tamaño:** 40.000 imágenes (20.000 Positivas y 20.000 Negativas).
+Anteriormente, se había utilizado el dataset estándar **Concrete Crack Images for Classification** (Özgenel), disponible en Mendeley Data y Kaggle, con un tamaño de 40.000 imágenes (20.000 Positivas y 20.000 Negativas).
+Pero debido a la simplicidad del problema y de la base de datos, se ha buscado una más compleja, para ello, se ha utilizado el conjunto de datos SDNET2018 del campus de la Universidad Estatal de Utah, Logan, Estados Unidos:
+* **Tamaño:** 56.092 imágenes (8.484 Positivas y 47.608 Negativas).
 * **Formato:** Imágenes RGB de 227x227 píxeles.
 * **Preprocesamiento:** Se realizará una división de los datos (Train/Validation/Test) para asegurar la generalización de los modelos.
+
 
 ## 3. Estado del Arte
 La detección de grietas en hormigón ha evolucionado a lo largo de los años, desde el procesamiento de imagen clásido hasta el uso de CNNs. A continuación, se comparan los modelos más relevantes de la literatura aplicados a este problema de la clasificación automática de grietas en hormigón. 
@@ -59,7 +61,12 @@ Para este proyecto se utilizarán las siguientes métricas, priorizando el **Rec
 │   ├── 02_Modelo_Lineal.ipynb
 │   ├── 02_Modelo_Machine_Learning.ipynb
 │   ├── 02_Modelo_Red_Neuronal_Simple.ipynb  
-│   └── 03_Modelos_Complejos.ipynb 
+│   └── 03_Modelos_Complejos_1.ipynb
+│   └── 03_Modelos_Complejos_2.ipynb
+│   └── 03_Modelos_Complejos_3.ipynb
+│   └── 03_Modelos_Complejos_4.ipynb
+│   └── 03_Modelos_Complejos_5.ipynb
+│   └── 03_Modelos_Complejos_6.ipynb 
 ├── src/                   # Scripts auxiliares
 ├── models/                # Pesos guardados (.h5)
 ├── requirements.txt       # Dependencias
@@ -68,11 +75,17 @@ Para este proyecto se utilizarán las siguientes métricas, priorizando el **Rec
 
 ## 6. Tabla de Resultados
 
-| Modelo | Tipo | Nº Parámetros | Accuracy | Recall | F1-Score |
+| Modelo | Tipo | Nº Parámetros | Accuracy | Recall | AUC |
 | :--- | :--- | :--- | :--- | :--- |:--- |
-| Modelo lineal | Regresión Logística | 510 | Train: 98%, Val: 98%, Test: 97%| Test: 98% | Test: 98% |
-| Modelo Machine Learning | Support Vector Machine| 510 | Train: 98%, Val: 97%, Test: 97% | Test: 98% | Test: 98% |
-| Modelo Simple Red Neuronal | CNN | 233 | Train: 94%, Val: 94%, Test: 94% | Train: 94%, Val: 94%, Test: 94% | Train: 94%, Val: 94%, Test: 94% |
+| Modelo lineal | Regresión Logística | 510 | Train: %, Val: %, Test: %| Test: % | Test: % |
+| Modelo Machine Learning | Support Vector Machine| 510 | Train: %, Val: %, Test: % | Test: % | Test: % |
+| Modelo Simple Red Neuronal | CNN | 233 | Train: %, Val: %, Test: % | Train: %, Val: %, Test: % | Train: %, Val: %, Test: % |
+| Modelo Complejo 1 | CNN | 23.850.113 | Train: 99.9%, Val: 92.6%, Test: 92.8% | Train: 99.9%, Val: 67.8%, Test: 67.3% | Train: 1.00, Val: 0.863, Test: 0.875|
+| Modelo Complejo 2 | CNN | 24.637.313 | Train: 87.5%, Val: 88.6%, Test: 89.5% | Train: 82.3%, Val: 73.0%, Test: 75.1% | Train: 0.934, Val: 0.907, Test: 0.918 |
+| Modelo Complejo 3 | CNN | 23.850.113 | Train: 86.0%, Val: 87.1%, Test: 87.9% | Train: 79.8%, Val: 73.8%, Test: 76.5% | Train: 0.919, Val: 0.901, Test: 0.911 |
+| Modelo Complejo 4 | CNN | 23.589.761 | Train: 83.1%, Val: 83.7%, Test: 84.2% | Train: 74.0%, Val: 71.1%, Test: 73.5% | Train: 0.878, Val: 0.868, Test: 0.878 |
+| Modelo Complejo 5 | CNN | 8.590.209 | Train: 79.6%, Val: 82.0%, Test: 82.3% | Train: 72.7%, Val: 67.4%, Test: 68.3% | Train: 0.843, Val: 0.836, Test: 0.846 |
+| Modelo Complejo 6 | CNN | 1.460.609 | Train: 57.2%, Val: 62.0%, Test: 62.4% | Train: 71.9%, Val: 64.9%, Test: 70.8% | Train: 0.698, Val: 0.693, Test: 0.723 |
 
 ## 7. Conclusiones y Próximos Pasos
 
@@ -82,12 +95,14 @@ Como se puede ver en la tabla de resultados, hemos logrado solucionar de manera 
 - **Regresión Logística:** Nos entrega probabilidades sobre la pertenencia a una clase. Para este modelo utilizamos la función de coste de **entropía cruzada** (Log Loss) porque penaliza exponencialmente las predicciones que son muy seguras y erróneas, optimizando la capacidad de clasificación probabilística. Hemos aplicado 3 modelos, uno sin preprocesamiento con un accuracy en Test del 90% y 4097 parámetros, uno aplicando HOG con un accuracy en Test del 94% y 1765 parámetros, y uno con HOG y PCA con un accuracy en Test del 98% y 510 parámetros
 - **Support Vector Machine (LinearSVC):** Este modelo encuentra el hiperplano óptimo que separa ambas clases. Utiliza como función de coste el **Hinge Loss** dado que su principal objetivo es maximizar el margen que separa las imágenes que tienen grieta de las que no, demostrando ser extremadamente robusto. Hemos aplicado 3 modelos, uno sin preprocesamiento con un accuracy en Test del 88% y 4097 parámetros, uno aplicando HOG con un accuracy en Test del 97.5% y 1765 parámetros, y uno con HOG y PCA con un accuracy en Test del 97.7% y 510 parámetros
 - **Red Neuronal Convolucional:** Se ha diseñado una arquitectura de Red Neuronal Convolucional (CNN) muy simple, compuesta por una capa convolucional de 8 filtros con un kernel de tamaño (3x3) para extraer características básicas de la imagen como bordes y texturas, luego se ha añadido una capa de Global Average Pooling 2D para reducir la dimensionalidad, finalizando con una capa de salida de una neurona con activación sigmoide para la clasificación binaria (Grieta/sano). Durante el entrenamiento, se ha utilizado la funcionalidad de ModelCheckpoint para poder monitorizar la pérdida de validación y guardar los pesos de la mejor época con el mínimo error 'val_loss'. El modelo se ha entrenado durante 120 épocas, aunque la capacidad de computación ha limitado el proceso (se podría haber entrenado con más épocas), ya que al visualizar las curvas de pérdida se puede ver que tanto la línea de entrenamiento como la de validación mantienen una tendencia descendiente, lo que sugiere que el modelo podría seguir mejorando con más épocas de entrenamiento. La curva de pérdida de validación desciende suavemente junto a la de entrenamiento, estabilizandose sin mostrar signos siginficativos de sobreentrenamiento. A parte, el modelo alcanza rapidamente una alta precisión en validación, manteniéndose más o menos alineado con el set de entrenamiento, lo que indica una buena capacidad de generalización.
-Al igual que en la regresión logística, se utiliza la entropía cruzada binaria como función de coste para optimizar la probabilidad de acierto del modelo. Se ha logrado un Accuracy del 94% con tan solo 233 parámetros. Mediante la visualización de los mapas de características, se ha validado que la red aprende de sus propios filtros de detección de bordes y texturas, ignorando el ruido del hormigón mejor que los descriptores estáticos como el HOG. 
+Al igual que en la regresión logística, se utiliza la entropía cruzada binaria como función de coste para optimizar la probabilidad de acierto del modelo. Se ha logrado un Accuracy del 94% con tan solo 233 parámetros. Mediante la visualización de los mapas de características, se ha validado que la red aprende de sus propios filtros de detección de bordes y texturas, ignorando el ruido del hormigón mejor que los descriptores estáticos como el HOG.
 
-**Cambio de Objetivo:**
-Dado que SVM y la Regresión Logística han logrado solucionar el problema a un nivel casi perfecto (98% de Recall), aplicar y ajustar **Redes Neuronales Convolucionales (CNN) más complejas** sobre este dataset es innecesario, ya que el espacio de mejora es virtualmente inexistente. 
-
-Por tanto, no hay necesidad de usar modelos de Aprendizaje Profundo más profundos para esta versión exacta del problema y el siguiente paso sería cambiar el objetivo del trabajo hacia un entorno más complejo y realista, introduciendo por ejemplo: "estimación volumétrica de la grieta, superficies con distintas texturas o de otros materiales ruidosos..."
+- **CNN compleja 1:** Para el modelo más complejo, se ha hecho fine tuning con una ResNet50, para ello, se ha entrenado una capa densa de 128 neuronas, y se ha modificado los pesos del bloque 5 de la ResNet50.
+- **CNN compleja 2:** Se ha congelado el 100% de la ResNet50 y se ha añadido una caoa densa de 512 neuronas.
+- **CNN compleja 3:** Manteniendo las ResNet50 congelada, se ha reducido la capa densa oculta de 512 neuronas a solo 128 neuronas, simplificando de esta manera poco a poco el modelo.
+- **CNN compleja 4:** Se ha eliminado la capa densa oculta de 128 neuronas y el dropout, pasando directamente de la ResNet50 congelada a la unica neurona final de clasificación.
+- **CNN compleja 5:** Como ya no quedan capas densas que quitar en la cabeza del modelo, lo que se ha hecho para simplificarlo es quitar capas de la propia red base de la ResNet50, eliminando todo el bloque 5, por tanto ahora el modelo extrae caracteristicas menos profundas y es más pequeño.
+- **CNN compleja 6:** Para simplificar aún más el modelo complejo, se han eliminado los bloques 4 y 5 de la ResNet50. 
 
 
 
