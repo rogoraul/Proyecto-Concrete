@@ -77,7 +77,7 @@ Para este proyecto se utilizarán las siguientes métricas, priorizando el **Rec
 
 | Modelo | Tipo | Nº Parámetros | Accuracy | Recall | AUC |
 | :--- | :--- | :--- | :--- | :--- |:--- |
-| Modelo lineal | Regresión Logística | 510 | Train: %, Val: %, Test: %| Test: % | Test: % |
+| Modelo lineal | Regresión Logística | 518 | Train: 52.3%, Val: 52.9%, Test: 52.2%| Test: 51.9% | Test: 53% |
 | Modelo Machine Learning | Support Vector Machine| 510 | Train: %, Val: %, Test: % | Test: % | Test: % |
 | Modelo Simple Red Neuronal | CNN | 233 | Train: %, Val: %, Test: % | Train: %, Val: %, Test: % | Train: %, Val: %, Test: % |
 | Modelo Complejo 1 | CNN | 23.850.113 | Train: 99.9%, Val: 92.6%, Test: 92.8% | Train: 99.9%, Val: 67.8%, Test: 67.3% | Train: 1.00, Val: 0.863, Test: 0.875|
