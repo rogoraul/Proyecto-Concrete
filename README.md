@@ -79,7 +79,7 @@ Para este proyecto se utilizarán las siguientes métricas, priorizando el **Rec
 | :--- | :--- | :--- | :--- | :--- |:--- |
 | Modelo lineal | Regresión Logística | 518 | Train: 52.3%, Val: 52.9%, Test: 52.2%| Test: 51.9% | Test: 53% |
 | Modelo Machine Learning | Support Vector Machine| 510 | Train: %, Val: %, Test: % | Test: % | Test: % |
-| Modelo Simple Red Neuronal | CNN | 233 | Train: %, Val: %, Test: % | Train: %, Val: %, Test: % | Train: %, Val: %, Test: % |
+| Modelo Simple Red Neuronal | CNN | 233 | Train: 53.68%, Val: 61%, Test: 74.85% | Train: 65.52%, Val: 55.27%, Test: 32.82% | Train: 61.34%, Val: 61.70%, Test: 63.19% |
 | Modelo Complejo 1 | CNN | 23.850.113 | Train: 99.9%, Val: 92.6%, Test: 92.8% | Train: 99.9%, Val: 67.8%, Test: 67.3% | Train: 1.00, Val: 0.863, Test: 0.875|
 | Modelo Complejo 2 | CNN | 24.637.313 | Train: 87.5%, Val: 88.6%, Test: 89.5% | Train: 82.3%, Val: 73.0%, Test: 75.1% | Train: 0.934, Val: 0.907, Test: 0.918 |
 | Modelo Complejo 3 | CNN | 23.850.113 | Train: 86.0%, Val: 87.1%, Test: 87.9% | Train: 79.8%, Val: 73.8%, Test: 76.5% | Train: 0.919, Val: 0.901, Test: 0.911 |
