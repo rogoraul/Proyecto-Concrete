@@ -81,15 +81,15 @@ Para este proyecto se utilizarán las siguientes métricas, priorizando el **Rec
 | :--- | :--- | :--- | :--- | :--- |:--- |
 | Modelo lineal | Regresión Logística | 518 | Train: 52.3%, Val: 52.9%, Test: 52.2%| Test: 51.9% | Test: 53% |
 | Modelo Machine Learning | Support Vector Machine| 518 | Train: 51.4%, Val: 52%, Test: 51% | Test: 51.6% | Test: 52% |
-| Modelo Simple Red Neuronal | CNN | 233 | Train: 53.68%, Val: 61%, Test: 74.85% | Train: 65.52%, Val: 55.27%, Test: 32.82% | Train: 61.34%, Val: 61.70%, Test: 63.19% |
-| Modelo Simple Red Neuronal 2 | CNN | 436.865 | Train: 65.1%, Val: 75.7%, Test: 75.8% | Train: 70.2%, Val: 55.6%, Test: 60.7% | Train: 0.752, Val: 0.756, Test: 0.778 |
-| Modelo Simple Red Neuronal 3 | CNN | 102,465 | Train: 64.0%, Val: 73.8%, Test: 74.1% | Train: 65.1%, Val: 54.2%, Test: 60.6% | Train: 0.696, Val: 0.724, Test: 0.752 |
-| Modelo Complejo 1 | CNN | 23.850.113 | Train: 99.9%, Val: 92.6%, Test: 92.8% | Train: 99.9%, Val: 67.8%, Test: 67.3% | Train: 1.00, Val: 0.863, Test: 0.875|
-| Modelo Complejo 2 | CNN | 24.637.313 | Train: 87.5%, Val: 88.6%, Test: 89.5% | Train: 82.3%, Val: 73.0%, Test: 75.1% | Train: 0.934, Val: 0.907, Test: 0.918 |
-| Modelo Complejo 3 | CNN | 23.850.113 | Train: 86.0%, Val: 87.1%, Test: 87.9% | Train: 79.8%, Val: 73.8%, Test: 76.5% | Train: 0.919, Val: 0.901, Test: 0.911 |
-| Modelo Complejo 4 | CNN | 23.589.761 | Train: 83.1%, Val: 83.7%, Test: 84.2% | Train: 74.0%, Val: 71.1%, Test: 73.5% | Train: 0.878, Val: 0.868, Test: 0.878 |
-| Modelo Complejo 5 | CNN | 8.590.209 | Train: 79.6%, Val: 82.0%, Test: 82.3% | Train: 72.7%, Val: 67.4%, Test: 68.3% | Train: 0.843, Val: 0.836, Test: 0.846 |
-| Modelo Complejo 6 | CNN | 1.460.609 | Train: 57.2%, Val: 62.0%, Test: 62.4% | Train: 71.9%, Val: 64.9%, Test: 70.8% | Train: 0.698, Val: 0.693, Test: 0.723 |
+| Modelo Simple Red Neuronal | CNN propia | 233 | Train: 53.68%, Val: 61%, Test: 74.85% | Train: 65.52%, Val: 55.27%, Test: 32.82% | Train: 61.34%, Val: 61.70%, Test: 63.19% |
+| Modelo Simple Red Neuronal 2 | CNN propia | 436.865 | Train: 65.1%, Val: 75.7%, Test: 75.8% | Train: 70.2%, Val: 55.6%, Test: 60.7% | Train: 0.752, Val: 0.756, Test: 0.778 |
+| Modelo Simple Red Neuronal 3 | CNN propia | 102,465 | Train: 64.0%, Val: 73.8%, Test: 74.1% | Train: 65.1%, Val: 54.2%, Test: 60.6% | Train: 0.696, Val: 0.724, Test: 0.752 |
+| Modelo Complejo 1 | ResNet50 | 23.850.113 | Train: 99.9%, Val: 92.6%, Test: 92.8% | Train: 99.9%, Val: 67.8%, Test: 67.3% | Train: 1.00, Val: 0.863, Test: 0.875|
+| Modelo Complejo 2 | ResNet50 | 24.637.313 | Train: 87.5%, Val: 88.6%, Test: 89.5% | Train: 82.3%, Val: 73.0%, Test: 75.1% | Train: 0.934, Val: 0.907, Test: 0.918 |
+| Modelo Complejo 3 | ResNet50 | 23.850.113 | Train: 86.0%, Val: 87.1%, Test: 87.9% | Train: 79.8%, Val: 73.8%, Test: 76.5% | Train: 0.919, Val: 0.901, Test: 0.911 |
+| Modelo Complejo 4 | ResNet50 | 23.589.761 | Train: 83.1%, Val: 83.7%, Test: 84.2% | Train: 74.0%, Val: 71.1%, Test: 73.5% | Train: 0.878, Val: 0.868, Test: 0.878 |
+| Modelo Complejo 5 | ResNet50 | 8.590.209 | Train: 79.6%, Val: 82.0%, Test: 82.3% | Train: 72.7%, Val: 67.4%, Test: 68.3% | Train: 0.843, Val: 0.836, Test: 0.846 |
+| Modelo Complejo 6 | ResNet50 | 1.460.609 | Train: 57.2%, Val: 62.0%, Test: 62.4% | Train: 71.9%, Val: 64.9%, Test: 70.8% | Train: 0.698, Val: 0.693, Test: 0.723 |
 
 ## 7. Conclusiones y Próximos Pasos
 
