@@ -45,12 +45,12 @@ La detección de grietas en hormigón ha evolucionado a lo largo de los años, d
 * **[5]** Arici, Ayşe. (2025). Automatic Crack Detection on Concrete Surfaces Using Lightweight Deep Learning Models. Journal of Clinical Case Studies Reviews & Reports. 1-8. 10.47363/JCCSR/2025(7)364.
   
 ## 4. Métricas de Evaluación 
-Para este proyecto se utilizarán las siguientes métricas, priorizando el **Recall**, dado que en ingeniería civil un Falso Negativo (no detectar una grieta real) es el error más grave y peligroso, porque pone en riesgo la seguridad estructural.
+Para este proyecto se utilizarán las siguientes métricas, priorizando el **Accuracy**. Inicialmente, el proyecto priorizó esta métrica, utilizándola como referencia para guardar el mejor modelo y detener el entrenamiento. Para contrarrestar el desbalanceo de los datos (47.608 imágenes sanas frente a 8.484 con grietas), se implementó una técnica de balanceo en la función de coste, dando un peso de 3.31 a la clase positiva (grieta) y 0.59 a la negativa. 
 
 * **Nº Parámetros:** Complejidad computacional del modelo.
 * **Accuracy:** Precisión global.
 * **Recall (Sensibilidad):** Capacidad de encontrar todas las grietas reales.
-* **F1-Score:** Equilibrio entre Precision y Recall.
+* **AUC:** Evalúa la capacidad general de la red neuronal para distinguir correctamente entre el hormigón sin grietas y el hormigón con grietas. 
 
 ## 5. Estructura del Proyecto
 ```text
